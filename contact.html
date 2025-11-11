@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Contact – Tanvir Ahmed</title>
+  <link rel="stylesheet" href="style.css">
+  <script>
+    // Simple handler to display confirmation message when the form is submitted
+    function handleSubmit(event) {
+      event.preventDefault();
+      const form = document.getElementById('contactForm');
+      const confirmation = document.getElementById('confirmationMessage');
+      form.style.display = 'none';
+      confirmation.style.display = 'block';
+    }
+  </script>
+</head>
+<body>
+  <header class="short">
+    <h1>Contact Me</h1>
+    <p>I'd love to hear from you</p>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="about-me.html">About Me</a>
+    <a href="someone-close.html">Someone Close</a>
+    <a href="my-interest.html">My Interest</a>
+    <a href="cool-stuff.html">Cool Stuff</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+  <main>
+    <section>
+      <h2>Get in Touch</h2>
+      <img src="assets/tanvir.png" alt="Tanvir Ahmed smiling" style="max-width:200px; border-radius:50%; display:block; margin:0 auto 20px;">
+      <p>You can reach me using the form below. Whether you have questions, comments or just want to say hello, I'll be glad to respond.</p>
+      <p>If you prefer, you can also email me directly at <a href="mailto:ta94333@gmail.com">ta94333@gmail.com</a> or call/text me at <a href="tel:9166343158">(916) 634‑3158</a>.</p>
+      <form id="contactForm" onsubmit="handleSubmit(event)">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Send</button>
+      </form>
+      <div id="confirmationMessage" class="confirmation" style="display:none;">
+        Thanks! Your message has been recorded.
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 Md Tanvir Ahmed. All rights reserved.</p>
+  </footer>
+</body>
+</html>

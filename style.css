@@ -1,0 +1,159 @@
+/*
+ * Global stylesheet for Tanvir Ahmed's MIS101 website.
+ *
+ * Defines the overall look and feel of the site, including the
+ * navigation bar, headers, layouts for cards and grids, and forms.
+ *
+ * Colors were chosen for a clean, modern palette with plenty of
+ * contrast. The tall and short headers differentiate the home page
+ * from interior pages as requested in the project instructions.
+ */
+
+/* Reset some basic elements */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+/* Header styles */
+header {
+  background-color: #005f73;
+  color: #ffffff;
+  text-align: center;
+}
+
+/* Tall header for the home page */
+header.tall {
+  padding: 60px 20px;
+}
+
+/* Short header for interior pages */
+header.short {
+  padding: 30px 20px;
+}
+
+/* Navigation bar styles */
+nav {
+  background-color: #0a9396;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+nav a {
+  color: #ffffff;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+  background-color: #94d2bd;
+  color: #000000;
+}
+
+/* Main content area */
+main {
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+/* Card layout used for cool-stuff images */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.card .caption {
+  padding: 10px;
+  font-size: 0.9rem;
+  color: #555555;
+  text-align: center;
+}
+
+/* Contact form styles */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+form label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+  box-sizing: border-box;
+}
+
+form button {
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #0a9396;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+form button:hover {
+  background-color: #94d2bd;
+  color: #000000;
+}
+
+/* Confirmation message style */
+.confirmation {
+  color: green;
+  margin-top: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Footer styles */
+footer {
+  background-color: #005f73;
+  color: #ffffff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+}
