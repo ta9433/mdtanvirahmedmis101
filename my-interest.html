@@ -13,15 +13,21 @@
     <h1>My Interest</h1>
     <p>Passion for Argentine football</p>
   </header>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="about-me.html">About Me</a>
-    <a href="someone-close.html">Someone Close</a>
-    <a href="my-interest.html">My Interest</a>
-    <a href="cool-stuff.html">Cool Stuff</a>
-    <a href="contact.html">Contact</a>
-  </nav>
+<nav class="nav">
+  <a href="index.html">Home</a>
+
+  <div class="dropdown">
+    <a href="about.html" class="parent">About ▾</a>
+    <div class="menu">
+      <a href="about-me.html">About Me (Personal)</a>
+      <a href="someone-close.html">Someone Close</a>
+      <a href="my-interest.html">My Interest</a>
+    </div>
+  </div>
+
+  <a href="cool-stuff.html">Cool Stuff</a>
+  <a href="contact.html">Contact</a>
+</nav>
   <main>
     <section>
       <h2>Love for the Beautiful Game</h2>
