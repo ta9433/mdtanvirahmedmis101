@@ -157,3 +157,33 @@ footer {
   padding: 20px;
   margin-top: 40px;
 }
+/* Dropdown for About sub-pages */
+.nav { position: sticky; top: 0; z-index: 10; }
+.dropdown { position: relative; display: inline-block; }
+.dropdown > .parent { padding-right: 22px; }
+.dropdown .menu {
+  display: none;
+  position: absolute;
+  top: 38px;
+  left: 0;
+  min-width: 220px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  padding: 8px;
+}
+.dropdown .menu a {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 8px;
+  color: #0f172a;
+}
+.dropdown .menu a:hover { background: #eef2ff; text-decoration: none; }
+.dropdown:hover .menu { display: block; }
+
+/* Mobile stacking fallback */
+@media (max-width: 720px) {
+  .dropdown .menu { position: static; box-shadow: none; border: 0; padding: 0; }
+  .dropdown:hover .menu { display: block; }
+}
