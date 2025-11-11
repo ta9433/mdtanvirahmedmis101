@@ -1,15 +1,11 @@
 /*
  * Global stylesheet for Tanvir Ahmed's MIS101 website.
- *
- * Defines the overall look and feel of the site, including the
- * navigation bar, headers, layouts for cards and grids, and forms.
- *
- * Colors were chosen for a clean, modern palette with plenty of
- * contrast. The tall and short headers differentiate the home page
- * from interior pages as requested in the project instructions.
- */
+ * Clean palette, tall vs. short headers, card grid, contact form,
+ * and a robust dropdown nav that works on hover + keyboard.
+*/
 
-/* Reset some basic elements */
+/* Reset / Base */
+* { box-sizing: border-box; }
 body {
   margin: 0;
   padding: 0;
@@ -19,77 +15,128 @@ body {
   color: #333;
 }
 
-/* Header styles */
+/* Headers */
 header {
   background-color: #005f73;
   color: #ffffff;
   text-align: center;
 }
+header.tall { padding: 60px 20px; }   /* Home */
+header.short { padding: 30px 20px; }  /* Interior pages */
 
-/* Tall header for the home page */
-header.tall {
-  padding: 60px 20px;
-}
-
-/* Short header for interior pages */
-header.short {
-  padding: 30px 20px;
-}
-
-/* Navigation bar styles */
-nav {
+/* ===== Navigation (supports <nav> OR <nav class="nav">) ===== */
+nav, .nav {
   background-color: #0a9396;
-  overflow: hidden;
+  overflow: visible;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  gap: 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
-nav a {
+nav a, .nav a {
   color: #ffffff;
   padding: 14px 20px;
   text-decoration: none;
   text-align: center;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-block;
+  border-radius: 0;
 }
-
-nav a:hover {
+nav a:hover, .nav a:hover,
+nav a:focus, .nav a:focus {
   background-color: #94d2bd;
   color: #000000;
+  outline: none;
 }
 
-/* Main content area */
+/* Dropdown container */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Parent (About ▾) */
+.dropdown > .parent {
+  padding-right: 26px; /* space before caret */
+}
+
+/* Dropdown panel */
+.dropdown .menu {
+  display: none;
+  position: absolute;
+  top: 44px;          /* drops below the bar */
+  left: 0;
+  min-width: 230px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.10);
+  padding: 8px;
+  z-index: 1001;
+}
+
+/* Items inside dropdown */
+.dropdown .menu a {
+  display: block;
+  padding: 10px 12px;
+  color: #0f172a;
+  border-radius: 8px;
+  text-align: left;
+}
+.dropdown .menu a:hover,
+.dropdown .menu a:focus {
+  background: #eef2ff;
+  color: #0f172a;
+  text-decoration: none;
+}
+
+/* Show dropdown: on hover OR keyboard focus */
+.dropdown:hover .menu,
+.dropdown:focus-within .menu {
+  display: block;
+}
+
+/* Keep panel visible while mouse moves into it */
+.dropdown:hover > .menu { display: block; }
+
+/* Mobile fallback: stack menu inline */
+@media (max-width: 720px) {
+  nav, .nav { justify-content: flex-start; padding-left: 8px; }
+  .dropdown .menu {
+    position: static;
+    box-shadow: none;
+    border: 0;
+    padding: 0;
+    margin-top: 6px;
+  }
+}
+
+/* Main content */
 main {
   padding: 20px;
   max-width: 960px;
   margin: 0 auto;
 }
+section { margin-bottom: 40px; }
 
-section {
-  margin-bottom: 40px;
-}
-
-/* Card layout used for cool-stuff images */
+/* Cards / gallery */
 .card-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
 }
-
 .card {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   overflow: hidden;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
-
-.card img {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
+.card img { display: block; width: 100%; height: auto; }
 .card .caption {
   padding: 10px;
   font-size: 0.9rem;
@@ -97,7 +144,7 @@ section {
   text-align: center;
 }
 
-/* Contact form styles */
+/* Contact form */
 form {
   max-width: 600px;
   margin: 0 auto;
@@ -105,17 +152,10 @@ form {
   background-color: #ffffff;
   border: 1px solid #e0e0e0;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
-
-form label {
-  display: block;
-  margin-top: 10px;
-  font-weight: bold;
-}
-
-form input,
-form textarea {
+form label { display: block; margin-top: 10px; font-weight: bold; }
+form input, form textarea {
   width: 100%;
   padding: 8px;
   margin-top: 5px;
@@ -123,7 +163,6 @@ form textarea {
   border: 1px solid #cccccc;
   box-sizing: border-box;
 }
-
 form button {
   margin-top: 15px;
   padding: 10px 20px;
@@ -133,15 +172,11 @@ form button {
   border-radius: 4px;
   cursor: pointer;
   font-size: 1rem;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
+form button:hover { background-color: #94d2bd; color: #000000; }
 
-form button:hover {
-  background-color: #94d2bd;
-  color: #000000;
-}
-
-/* Confirmation message style */
+/* Form confirmation */
 .confirmation {
   color: green;
   margin-top: 15px;
@@ -149,7 +184,7 @@ form button:hover {
   text-align: center;
 }
 
-/* Footer styles */
+/* Footer */
 footer {
   background-color: #005f73;
   color: #ffffff;
@@ -157,4 +192,3 @@ footer {
   padding: 20px;
   margin-top: 40px;
 }
-
